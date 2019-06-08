@@ -5,6 +5,7 @@
   "author": "mmborres",
   "license": "MIT",
   "homepage": "https://cheer-me-app.herokuapp.com/",
+  "description": "cheer me up app",
   "main": "server.js",
   "dependencies": {
     "axios": "^0.19.0",
