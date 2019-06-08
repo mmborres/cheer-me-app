@@ -4,7 +4,7 @@
   },
   "author": "mmborres",
   "license": "MIT",
-  "homepage": "https://mmborres.github.io/cheer-me-app-site",
+  "homepage": "https://cheer-me-app.herokuapp.com/",
   "main": "server.js",
   "dependencies": {
     "axios": "^0.19.0",
