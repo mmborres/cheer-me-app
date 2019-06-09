@@ -10,194 +10,125 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <title>Cheer-Me-App</title>
 </head>
-<body style="background-image: url('https://s3.amazonaws.com/static.baggu.com/Wallpaper/FA18/YellowHappy_2560_1440.png'); background-color: yellow">
+<!--'https://s3.amazonaws.com/static.baggu.com/Wallpaper/FA18/YellowHappy_2560_1440.png'-->
+<body>
+  <!--
+  style="background-image: url('https://wonderfulengineering.com/wp-content/uploads/2014/09/star-wars-wallpaper-31.jpg'); background-color: yellow">
+  -->
+  <div class="bg-image-p1"></div>
   
-  <div id="navbar"></div>
+  <div class="bg-text">
+
+  <!--div id="navbar"></div-->
   <div class="center-content page-container">
-      <h1 style="background-color: wheat">Cheer-Me-App</h1>
+      <h1 id="title-expression" ><b>Cheer-Me-App</b></h1>
 
     <div class="progress" id="loader">
       <div class="indeterminate"></div>
     </div>
 
     <div style="position: relative" class="margin">
-      <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted></video>
+      <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted style="visibility: visible;"></video>
       <!-- video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted></video -->
-      <canvas id="overlay" />
+      <canvas id="overlay" style="visibility: visible;"></canvas>
+      <canvas id="snap" style="display: none;"></canvas><br><a id="linktosnap" target="_blank" onclick="showimage(); return true;"></a>
     </div>
 
-    <div class="controls">
-        <!--a href="#" id="take-photo" title="Take Photo" -->
-          <button id="take-photo" onclick="takeSnapshot()">Take Snapshot</button>
-          <button id="stopcam" onclick="stopcam()">Stop Camera</button><br>
-        <!--/a -->
-    </div>
 
     <!-- Hidden canvas element. Used for taking snapshot of video. -->
-    <h3 id="title-expression" style="background-color: wheat"></h3>
-    <canvas id="snap"></canvas><br>
-    <a href="/cheerme" style="text-decoration: none"><button id="cheerme" style="color: black"></button></a>
+    <!--h1 id="title-expression" style="visibility: hidden;"></h1 -->
+    <!--canvas id="snap" style="visibility: hidden;""></canvas><a id="linktosnap" target="_blank" onclick="showimage(); return true;"></a-->
+    <!--a href="/cheerme" style="text-decoration: none" id="cheerme-link"><button id="cheerme" style="visibility: hidden;"></button></a-->
+    
 
-    <div class="row side-by-side">
+    <div class="flex-container controls">
+          <button id="take-photo" onclick="takeSnapshot()">Take Snapshot</button>
+          <button id="stopcam" onclick="stopcam()">Set Video</button>
+          <a href="/cheerme" style="text-decoration: none; color: white;" id="cheerme-link"><button id="cheerme" style="visibility: hidden; display: none;"></button></a>
+    </div>
 
-      <!--face_detector_selection_control
-      <div id="face_detector_selection_control" class="row input-field" style="margin-right: 20px;">
-        <select id="selectFaceDetector">
-          <option value="ssd_mobilenetv1">SSD Mobilenet V1</option>
-          <option value="tiny_face_detector">Tiny Face Detector</option>
-          <option value="mtcnn">MTCNN</option>
-        </select>
-        <label>Select Face Detector</label>
-      </div>
-      face_detector_selection_control -->
+    
 
-      <!-- check boxes
-      <div class="row" style="width: 220px;">
-        <input type="checkbox" id="hideBoundingBoxesCheckbox" onchange="onChangeHideBoundingBoxes(event)" />
-        <label for="hideBoundingBoxesCheckbox">Hide Bounding Boxes</label>
-      </div>
-      check boxes -->
-
-      <!-- fps_meter
-      <div id="fps_meter" class="row side-by-side">
-        <div>
-          <label for="time">Time:</label>
-          <input disabled value="-" id="time" type="text" class="bold">
-          <label for="fps">Estimated Fps:</label>
-          <input disabled value="-" id="fps" type="text" class="bold">
-        </div>
-      </div>
-      fps_meter -->
+    <div class="row side-by-side"></div>
 
     </div>
 
-
-    <!-- ssd_mobilenetv1_controls
-    <span id="ssd_mobilenetv1_controls">
-      <div class="row side-by-side">
-        <div class="row">
-          <label for="minConfidence">Min Confidence:</label>
-          <input disabled value="0.5" id="minConfidence" type="text" class="bold">
-        </div>
-        <button
-          class="waves-effect waves-light btn"
-          onclick="onDecreaseMinConfidence()"
-        >
-          <i class="material-icons left">-</i>
-        </button>
-        <button
-          class="waves-effect waves-light btn"
-          onclick="onIncreaseMinConfidence()"
-        >
-          <i class="material-icons left">+</i>
-        </button>
-      </div>
-    </span>
-    ssd_mobilenetv1_controls -->
-
-    <!-- tiny_face_detector_controls
-    <span id="tiny_face_detector_controls">
-      <div class="row side-by-side">
-        <div class="row input-field" style="margin-right: 20px;">
-          <select id="inputSize">
-            <option value="" disabled selected>Input Size:</option>
-            <option value="128">128 x 128</option>
-            <option value="160">160 x 160</option>
-            <option value="224">224 x 224</option>
-            <option value="320">320 x 320</option>
-            <option value="416">416 x 416</option>
-            <option value="512">512 x 512</option>
-            <option value="608">608 x 608</option>
-          </select>
-          <label>Input Size</label>
-        </div>
-        <div class="row">
-          <label for="scoreThreshold">Score Threshold:</label>
-          <input disabled value="0.5" id="scoreThreshold" type="text" class="bold">
-        </div>
-        <button
-          class="waves-effect waves-light btn"
-          onclick="onDecreaseScoreThreshold()"
-        >
-          <i class="material-icons left">-</i>
-        </button>
-        <button
-          class="waves-effect waves-light btn"
-          onclick="onIncreaseScoreThreshold()"
-        >
-          <i class="material-icons left">+</i>
-        </button>
-      </div>
-    </span>
-    tiny_face_detector_controls -->
-
-    <!-- mtcnn_controls
-    <span id="mtcnn_controls">
-      <div class="row side-by-side">
-        <div class="row">
-          <label for="minFaceSize">Minimum Face Size:</label>
-          <input disabled value="20" id="minFaceSize" type="text" class="bold">
-        </div>
-        <button
-          class="waves-effect waves-light btn"
-          onclick="onDecreaseMinFaceSize()"
-        >
-          <i class="material-icons left">-</i>
-        </button>
-        <button
-          class="waves-effect waves-light btn"
-          onclick="onIncreaseMinFaceSize()"
-        >
-          <i class="material-icons left">+</i>
-        </button>
-      </div>
-    </span>
-    mtcnn_controls -->
-
+    </div>
   </body>
 
   <script>
 //snapshot
 
 var lastResult;
+var imagestr;
 
 function stopcam() {
     var video = document.querySelector('#inputVideo');
     var buttonCam = document.querySelector('#stopcam');
     
     if (video.paused) {
+
+      video.style.visibility = "visible";
+      video.style.display = "inline";
+
+      var overlaycanvas = document.querySelector('#overlay');
+          overlaycanvas.style.visibility = "visible";
+          overlaycanvas.style.display = "inline";
+
+          var hidden_canvas = document.querySelector('#snap');
+          hidden_canvas.style.visibility = "hidden";
+          hidden_canvas.style.display = "none";
+
+          var expTitle = document.querySelector('#title-expression');
+          expTitle.innerHTML = "<b>Cheer-Me-App</b>";
+
+          var buttonTakeShot = document.querySelector('#take-photo');
+          buttonTakeShot.disabled = false;
+          buttonTakeShot.style.visibility = "visible";
+          buttonTakeShot.style.display = "inline";
+
+          var cheerMe = document.querySelector('#cheerme');
+          cheerMe.style.visibility = "hidden";
+          cheerMe.style.display = "none";
+
+          var asnap = document.getElementById("linktosnap");
+          asnap.style.visibility = "hidden";
+
       video.play();
-      buttonCam.innerHTML = "Stop Camera";
-    } else {
+      //buttonCam.innerHTML = "Stop Camera";
+    } /*else {
       video.pause();
-      buttonCam.innerHTML = "Restart Camera";
-    }
+      //buttonCam.innerHTML = "Restart Camera";
+    }*/
   }
 
 function takeSnapshot(){
+        let highestexpression = "";
         // Here we're using a trick that involves a hidden canvas element.  
         var video = document.querySelector('#inputVideo');
 
         if (video) {
           video.pause();
           var buttonTakeShot = document.querySelector('#take-photo');
-          buttonTakeShot.innerHTML = "Retake Snapshot";
           buttonTakeShot.disabled = true;
+          buttonTakeShot.style.visibility = "hidden";
+          
+          video.style.visibility = "hidden";
+          video.style.display = "none";
+
+          var overlaycanvas = document.querySelector('#overlay');
+          
+          overlaycanvas.style.visibility = "hidden";
+          overlaycanvas.style.display = "none";
         }
 
         if (lastResult) {
-          //console.log(lastResult);
-          //console.log(lastResult.expressions);
-
-          let highestexpression = "";
 
           let highestValue = 0.00;
 
           Object.keys(lastResult.expressions)
             .forEach(function eachKey(key) { 
-              //console.log(key); // alerts key 
               const expressValue = lastResult.expressions[key];
-              //console.log(expressValue); // alerts value
 
               if ( Number(expressValue) > Number(highestValue) ) {
                 highestValue = expressValue;
@@ -207,13 +138,18 @@ function takeSnapshot(){
 
             var cheerMe = document.querySelector('#cheerme');
             cheerMe.innerHTML = "I am feeling " + highestexpression + "... Cheer Me Up!";
+            cheerMe.style.visibility = "visible";
+            cheerMe.style.display = "inline";
 
             var expTitle = document.querySelector('#title-expression');
-            expTitle.innerHTML = "Gotcha! [" + highestexpression.toUpperCase() + "]";
+            expTitle.innerHTML = "<b>Cheer-Me-App<br>[" + highestexpression.toUpperCase() + "]</b>";
         }
 
         var hidden_canvas = document.querySelector('#snap'), //canvas
             context = hidden_canvas.getContext('2d');
+        
+        hidden_canvas.style.display = "inline";
+        hidden_canvas.style.visibility = "visible";
 
         var width = video.videoWidth,
             height = video.videoHeight;
@@ -221,12 +157,12 @@ function takeSnapshot(){
         if (video) {
           var buttonCam = document.querySelector('#stopcam');
           
-            setTimeout(function(){ 
+            /*setTimeout(function(){ 
               if ( buttonCam.innerHTML === "Stop Camera") {
                 video.play(); 
               }
               buttonTakeShot.disabled = false; 
-            }, 5000);
+            }, 3000);*/
           
         }
 
@@ -240,8 +176,26 @@ function takeSnapshot(){
             context.drawImage(video, 0, 0, width, height);
 
             // Turn the canvas image into a dataURL that can be used as a src for our photo.
-            return hidden_canvas.toDataURL('image/png');
+            imagestr = hidden_canvas.toDataURL('image/png');
+            console.log(imagestr);
+            const acheer = document.getElementById("cheerme-link");
+            acheer.href = `/cheerme/${highestexpression}`; ///${imagestr}`;
+
+            const asnap = document.getElementById("linktosnap");
+            asnap.href = imagestr;
+            asnap.target = "_blank";
+            asnap.innerHTML = "Image Link";
+            
+            return imagestr;
         }
+    }
+
+    function showimage() {
+      console.log("imagestr", imagestr);
+      var win = window.open();
+      //window.open(imagestr, "Window Title", "width=500, height=450");
+
+      win.document.write('<iframe src="' + imagestr  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
     }
 
 //snapshot
@@ -268,7 +222,6 @@ function takeSnapshot(){
 
 
       const options = getFaceDetectorOptions();
-      //console.log(options);
 
       const ts = Date.now();
 
@@ -277,13 +230,13 @@ function takeSnapshot(){
       updateTimeStats(Date.now() - ts);
 
       if (result) {
-        //console.log(result);
+
         lastResult = result;
         const canvas = $('#overlay').get(0);
         const dims = faceapi.matchDimensions(canvas, videoEl, true);
 
         const resizedResult = faceapi.resizeResults(result, dims);
-        //conole.log(resizedResult);
+
         const minConfidence = 0.05;
         if (withBoxes) {
           faceapi.draw.drawDetections(canvas, resizedResult);
@@ -304,9 +257,7 @@ function takeSnapshot(){
       // to the video element
       
       /// VIDEO
-      //const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
       let videoEl = $('#inputVideo').get(0);
-      //videoEl.srcObject = stream;
 
       ////video
       // Request the camera.
@@ -319,8 +270,7 @@ function takeSnapshot(){
             function(stream){
 
                 // Create an object URL for the video stream and
-                // set it as src of our HTLM video element.
-                //video.src = window.URL.createObjectURL(stream);
+                // set it as src of our HTML video element.
 
                 try {
                     videoEl.srcObject = stream;
@@ -330,11 +280,6 @@ function takeSnapshot(){
 
                 // Play the video element to start the stream.
                 videoEl.play();
-                videoEl.onplay = function() {
-                    //showVideo();
-                    //var buttonTakeShot = document.querySelector('#take-photo');
-                    //buttonTakeShot.innerHTML = "Take Snapshot";
-                };
          
             },
             // Error Callback

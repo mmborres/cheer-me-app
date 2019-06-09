@@ -1,1 +1,73 @@
-Test
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Cheer-Me-App</title>
+</head>
+<!--
+<body style="background-image: url('https://wonderfulengineering.com/wp-content/uploads/2014/09/star-wars-wallpaper-31.jpg'); background-color: yellow">
+-->
+<body>
+    <div class="bg-image"></div>
+
+    <div class="bg-text-p2">
+            <div class="flex-container">
+                <div style="flex-grow: 2; padding: 10px 10px;" ><img src="<%= randombillmurray %>" style="border:5px solid pink"></div>
+                <div style="flex-grow: 7; padding: 10px 10px;"><h2>Hello from Bill Murray!<br>He also agrees of this number #<%= randomnumber %> fact:</h2>
+                    <h3><%= trivia %></h3>
+                    <p><i>Do you agree with him?</i></p>
+                </div>
+                <div style="flex-grow: 1; padding: 10px 10px;">
+                    <button class="reloadbutton" onclick="reloadpage()">Nope! Cheer Me Up Again!</button>
+                    <button class="backbutton" onclick="callcheerapp()">Another Facial Expression?</button>
+                </div>
+            </div>
+            <div class="flex-container">
+                <div style="flex-grow: 5; padding: 10px 10px; border: 5px solid lightseagreen; border-radius: 0.5em;">
+                    <h2>You are feeling <%= feeling %>.</h2><h3>This movie describes you best: </h3>
+                    <div class="flex-container">
+                        <div><a href="<%= moodmovielink %>" target="_blank"><img src="<%= moodmovieimg %>" width="200" height="250"></a></div>
+                        <div style="padding: 10px 10px;"><h2><%= moodmovietitle %></h2>Overview:<br><%= moodmovieoverview %></div>
+                    </div>
+                </div>
+                <div style="flex-grow: 5; padding: 10px 10px; border: 5px solid yellow; border-radius: 0.5em;">
+                    <h2>...Kidding!</h2><h3>You should watch this to cheer you up: </h3>
+                    <div class="flex-container">
+                        <div><a href="<%= cheerupmovielink %>" target="_blank"><img src="<%= cheerupmovieimg %>" width="200" height="250"></a></div>
+                        <div style="padding: 10px 10px;"><h2><%= cheerupmovietitle %></h2>Overview:<br><%= cheerupmovieoverview %></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-container">
+                    <div style="flex-grow: 4; padding: 10px 10px; border: 5px solid #2196f3; border-radius: 0.5em;">
+                        <h2>Laugh it out!</h2>
+                        <h3><% for(let i=0; i<joke.length; i++) { %>
+                                <%=  joke[i] %><br>
+                                <% } %>
+                        </h3>
+                    </div>
+                    <div style="flex-grow: 4; padding: 10px 10px; border: 5px solid #e91e63; border-radius: 0.5em;">
+                        <h1><i>Ode to General Assembly</i></h1>
+                        <h2><%= gatitle %></h2>
+                        <h3><% for(let i=0; i<gapoem.length; i++) { %>
+                            <%=  gapoem[i] %><br>
+                            <% } %>
+                        </h3>
+                        <p><i>by <%= gaauthor %></i></p>
+                    </div>
+                    <div style="flex-grow: 2; padding: 10px 10px;" ><img src="<%= randombillmurray2 %>" style="border:5px solid violet"></div>
+            </div>
+    </div>
+
+    <script>
+    function reloadpage() {
+        window.location.reload(true);
+    }
+
+    function callcheerapp() {
+        window.location.assign('/');
+    }
+    </script>
+</body>
+</html>
