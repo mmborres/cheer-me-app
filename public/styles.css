@@ -76,6 +76,7 @@
 
 body, html {
   height: 100%;
+  background-color: lightblue;
 }
 
 * {
@@ -112,7 +113,7 @@ body, html {
 
   /* Center and scale the image nicely */
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
 }
 
@@ -145,7 +146,7 @@ body, html {
   transform: translate(-50%, -50%);
   z-index: 2;
   width: 80%;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -175,4 +176,14 @@ button {
   font-size: 20px;
   padding: 10px 24px;
   border-radius: 30%;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .flex-container {   
+    flex-direction: column;
+  }
+  .bg-text-p2 {
+    top: 110%;
+  }
 }
