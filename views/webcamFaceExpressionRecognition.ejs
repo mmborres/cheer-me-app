@@ -228,8 +228,16 @@ function takeSnapshot(){
       let videoEl = $('#inputVideo').get(0);
 
       ////video
+
+      // The getUserMedia interface is used for handling camera input.
+    // Some browsers need a prefix so here we're covering all the options
+    navigator.getMedia = ( navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia);
+
       // Request the camera.
-      navigator.getUserMedia(
+      navigator.getMedia( // getUserMedia(
             {
               video: true
             },

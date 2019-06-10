@@ -13,6 +13,7 @@
     "express": "^4.17.0",
     "http": "0.0.0",
     "request": "^2.88.0",
+    "serve-favicon": "^2.5.0",
     "tmdbv3": "^0.1.2"
   },
   "repository": {

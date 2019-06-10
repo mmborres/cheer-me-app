@@ -6,6 +6,7 @@ const axios = require('axios');
 const http = require('http');
 const key = "0a8ee76b339d0551cc633a54259cd2bb";
 const tmdb = require('tmdbv3').init(key);
+const favicon = require('serve-favicon');
 
 const port = process.env.PORT || 3000; //for deployment
 
@@ -22,7 +23,8 @@ app.use(express.static(viewsDir));
 app.use(express.static(path.join(__dirname, './public')));
 app.use(express.static(path.join(__dirname, './weights')));
 app.use(express.static(path.join(__dirname, './dist')));
-app.use(express.static(path.join(__dirname, './img')));
+
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.get('/', (req, res) => res.redirect('webcam_face_expression_recognition'));
 
