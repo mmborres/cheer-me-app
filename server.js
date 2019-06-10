@@ -4,8 +4,8 @@ const { get } = require('request');
 const ejs = require('ejs');
 const axios = require('axios');
 const http = require('http');
-const key = "0a8ee76b339d0551cc633a54259cd2bb";
-const tmdb = require('tmdbv3').init(key);
+const viewertype = "0a8ee76b339d0551cc633a54259cd2bb";
+const tmdb = require('tmdbv3').init(viewertype);
 const favicon = require('serve-favicon');
 
 const port = process.env.PORT || 3000; //for deployment
