@@ -16,7 +16,7 @@ Live: [Cheer-Me-App](https://cheer-me-app.herokuapp.com)
 #### NOTE: The image can be downloaded by selecting the 'Image Link' (works on desktop browser only)
 ![Snapshot - Responsive version](snapshot.png "Snapshot")
 
-#### Selecting the Cheer Me Up button takes you to the API calls page
+#### Selecting the '...Cheer Me Up!' button takes you to the API calls page
 ![Result](browser.png "Result")
 
 ## Technologies 
