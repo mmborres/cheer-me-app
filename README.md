@@ -23,9 +23,8 @@ Live: [Cheer-Me-App](https://cheer-me-app.herokuapp.com)
 
 ## This web application uses Express/NodeJS + API calls. 
 
-  * [face-api.JS](https://github.com/justadudewhohacks/face-api.js?files=1) library for the facial expressions
-  * Front-end uses HTML utilising Web-sourced images
-  * Utilised ExpressJS views as the face-api.JS used it mainly
+  * [face-api.JS](https://github.com/justadudewhohacks/face-api.js?files=1) library for the facial expressions AI
+  * Utilised ExpressJS views as the face-api.JS used it mainly - Front-end uses HTML utilising Web-sourced images
   * DOM manipulation using Javascript and jQuery
   
 ## APIs
@@ -34,8 +33,7 @@ Live: [Cheer-Me-App](https://cheer-me-app.herokuapp.com)
   * Bill Murray Random Pics
   * Geek Jokes
   * The Movie Database
-  * Random Humor Poem Generator
-  * Humor Poems API for GA SEI31
+  * Humor Poems API for GA SEI31, sourced from Random Humor Poem Generator
 
 ### Developed own API - [Humor Poems API for GA SEI 31](https://github.com/mmborres/ga-poems-java-spring-mongo/blob/master/README.md)
 
