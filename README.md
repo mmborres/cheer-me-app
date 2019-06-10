@@ -1,6 +1,6 @@
 # Facial Expressions Catcher ++ 
 
-## [ Movie Suggestions + Jokes + Humor Poems + Number Trivia + Bill Murray ] APIs
+## (Movies + Jokes + Humor Poems + Number Trivia + Bill Murray) APIs
 
 Live: [Cheer-Me-App](https://cheer-me-app.herokuapp.com)
 ------------
