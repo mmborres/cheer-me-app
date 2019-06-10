@@ -166,15 +166,15 @@ button {
 
 .reloadbutton {
   background-color: #ff9800;
-  font-size: 20px;
-  padding: 10px 24px;
+  font-size: 15px;
+  padding: 10px 10px;
   border-radius: 0.5em;
 }
 
 .backbutton {
   background-color: #8bc34a;
-  font-size: 20px;
-  padding: 10px 24px;
+  font-size: 15px;
+  padding: 10px 10px;
   border-radius: 0.5em;
 }
 

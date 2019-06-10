@@ -10,16 +10,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <title>Cheer-Me-App</title>
 </head>
-<!--'https://s3.amazonaws.com/static.baggu.com/Wallpaper/FA18/YellowHappy_2560_1440.png'-->
 <body>
-  <!--
-  style="background-image: url('https://wonderfulengineering.com/wp-content/uploads/2014/09/star-wars-wallpaper-31.jpg'); background-color: yellow">
-  -->
+
   <div class="bg-image-p1"></div>
   
   <div class="bg-text">
 
-  <!--div id="navbar"></div-->
   <div class="center-content page-container">
       <h1 id="title-expression" ><b>Cheer-Me-App</b></h1>
 
@@ -29,25 +25,15 @@
 
     <div style="position: relative" class="margin">
       <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted style="visibility: visible;"></video>
-      <!-- video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted></video -->
       <canvas id="overlay" style="visibility: visible;"></canvas>
       <canvas id="snap" style="display: none;"></canvas><br><a id="linktosnap" target="_blank" onclick="showimage(); return true;"></a>
     </div>
 
-
-    <!-- Hidden canvas element. Used for taking snapshot of video. -->
-    <!--h1 id="title-expression" style="visibility: hidden;"></h1 -->
-    <!--canvas id="snap" style="visibility: hidden;""></canvas><a id="linktosnap" target="_blank" onclick="showimage(); return true;"></a-->
-    <!--a href="/cheerme" style="text-decoration: none" id="cheerme-link"><button id="cheerme" style="visibility: hidden;"></button></a-->
-    
-
     <div class="controls">
           <button id="take-photo" onclick="takeSnapshot()">Take Snapshot</button><br>
-          <button id="stopcam" onclick="stopcam()">Set Video</button><br>
+          <button id="stopcam" onclick="stopcam()">Set Camera</button><br>
           <a href="/cheerme" style="text-decoration: none; color: white;" id="cheerme-link"><button id="cheerme" style="visibility: hidden; display: none;"></button></a>
     </div>
-
-    
 
     <div class="row side-by-side"></div>
 
@@ -57,7 +43,7 @@
   </body>
 
   <script>
-//snapshot
+
 
 var lastResult;
 var imagestr;
@@ -95,11 +81,8 @@ function stopcam() {
           asnap.style.visibility = "hidden";
 
       video.play();
-      //buttonCam.innerHTML = "Stop Camera";
-    } /*else {
-      video.pause();
-      //buttonCam.innerHTML = "Restart Camera";
-    }*/
+      
+    } 
   }
 
 function takeSnapshot(){
@@ -153,18 +136,6 @@ function takeSnapshot(){
 
         var width = video.videoWidth,
             height = video.videoHeight;
-        
-        if (video) {
-          var buttonCam = document.querySelector('#stopcam');
-          
-            /*setTimeout(function(){ 
-              if ( buttonCam.innerHTML === "Stop Camera") {
-                video.play(); 
-              }
-              buttonTakeShot.disabled = false; 
-            }, 3000);*/
-          
-        }
 
         if (width && height) {
 
@@ -193,12 +164,9 @@ function takeSnapshot(){
     function showimage() {
       console.log("imagestr", imagestr);
       var win = window.open();
-      //window.open(imagestr, "Window Title", "width=500, height=450");
 
       win.document.write('<iframe src="' + imagestr  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
     }
-
-//snapshot
 
     let forwardTimes = [];
     let withBoxes = true;
