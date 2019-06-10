@@ -141,7 +141,7 @@ body, html {
   font-weight: bold;
   border: 3px solid #f1f1f1;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -168,14 +168,14 @@ button {
   background-color: #ff9800;
   font-size: 20px;
   padding: 10px 24px;
-  border-radius: 30%;
+  border-radius: 0.5em;
 }
 
 .backbutton {
   background-color: #8bc34a;
   font-size: 20px;
   padding: 10px 24px;
-  border-radius: 30%;
+  border-radius: 0.5em;
 }
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
@@ -184,6 +184,6 @@ button {
     flex-direction: column;
   }
   .bg-text-p2 {
-    top: 110%;
+    top: 120%;
   }
 }
