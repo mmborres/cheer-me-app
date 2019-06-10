@@ -19,15 +19,15 @@ Live: [Cheer-Me-App](https://cheer-me-app.herokuapp.com)
 #### Selecting the Cheer Me Up button takes you to the API calls page
 ![Result](browser1.png "Result")
 
-### Technologies 
+## Technologies 
 
-## This web application uses Express/NodeJS + API calls. 
+### This web application uses Express/NodeJS + API calls. 
 
   * [face-api.JS](https://github.com/justadudewhohacks/face-api.js?files=1) library for the facial expressions AI
   * Utilised ExpressJS views as the face-api.JS used it mainly - Front-end uses HTML utilising Web-sourced images
   * DOM manipulation using Javascript and jQuery
   
-## APIs
+### APIs
  
   * Numbers Trivia
   * Bill Murray Random Pics
