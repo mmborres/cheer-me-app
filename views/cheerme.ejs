@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="flex-container">
-                    <div style="flex-grow: 4; padding: 10px 10px; border: 5px solid #2196f3; border-radius: 0.5em;">
+                    <div style="flex-grow: 3; padding: 10px 10px; border: 5px solid #2196f3; border-radius: 0.5em;">
                         <h2>Laugh it out!</h2>
                         <h3><% for(let i=0; i<joke.length; i++) { %>
                                 <%=  joke[i] %><br>
@@ -57,6 +57,10 @@
                         <p><i>by <%= gaauthor %></i></p>
                     </div>
                     <div style="flex-grow: 2; padding: 10px 10px;" ><img src="<%= randombillmurray2 %>" style="border:5px solid violet"></div>
+                    <div style="flex-grow: 1; padding: 10px 10px;">
+                        <button class="reloadbutton" onclick="reloadpage()">Nope! Cheer Me Up Again!</button>
+                        <button class="backbutton" onclick="callcheerapp()">Another Facial Expression?</button>
+                    </div>
             </div>
     </div>
 
